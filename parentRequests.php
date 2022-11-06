@@ -1,4 +1,12 @@
 <!DOCTYPE html> <!--no errors, navbar done-->
+<?php
+session_start();
+if(!isset($_SESSION['parentID'])){
+  if(isset($_SESSION['babysitterID']))
+  header("Location: babysitterHome.php?error=1");
+  else
+  header("Location: index.php?error=1");
+}
 <html lang="en">
     <head>
         <meta charset="UTF-8">
