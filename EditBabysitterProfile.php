@@ -111,7 +111,7 @@ $connection -> close();
                           <br>
                           <p style="font-size:10px; color:rgb(155, 155, 129); text-align: center;" >[Optional profile picture]</p>
                           <br>
-                          <input type="file" id="uploadFile" name="profile-img" style="margin-left: 22% ">
+                          <input type="file" id="uploadFile" name="profile-img" accept = "image/*" style="margin-left: 22% ">
                           <label class="align-self-end" for="uploadFile"><i class="bi bi-plus-circle-fill" id="plusS"></i></label>
                           <br>
                           </div>
