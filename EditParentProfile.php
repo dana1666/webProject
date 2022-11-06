@@ -99,11 +99,12 @@ $connection -> close();
 
                     <!-- Profile Picture -->
                     <div id="addinPic" class="d-flex flex-column align-self-center mt-4" class="profile">
-                      <img  src="<?php echo $ProfilePhoto;?>"  alt="profile pic" name = "profilePhoto" class = profile_image >
+                      <img  src="<?php echo $ProfilePhoto;?>"  alt="profile pic" id="photo" name = "profilePhoto" class = profile_image >
+                      
                       <br>
                       <p style="font-size:10px; color:rgb(155, 155, 129); text-align: center;" >[Optional profile picture]</p>
                       <br>
-                      <input type="file" id="uploadFile" name="profile-img" style="margin-left: 22% ">
+                      <input type="file" id="uploadFile" name="profile-img" accept = "image/*" style="margin-left: 22% ">
                       <label class="align-self-end" for="uploadFile"><i class="bi bi-plus-circle-fill" id="plusS"></i></label>
                       <br>
                     </div>
@@ -226,6 +227,8 @@ $connection -> close();
   <p class="footer">Jalees &copy;
     <a href="mailto:Jalees@gmail.com">Contact Us</a>
   </p> 
+
+  
         
 </body>
 </html>
