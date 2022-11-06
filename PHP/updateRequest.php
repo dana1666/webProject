@@ -12,8 +12,8 @@ $id = $_POST['id'];
 $kidsNames = $_POST['kidsNames'];
 $kidsAges = $_POST['kidsAges'];
 $type = $_POST['serviceType'];
-$startDate = $_POST['startDate'];
-$endDate = $_POST['endDate'];
+$startDate = $_POST['startDay'];
+$endDate = $_POST['endDay'];
 $startTime = $_POST['startTime'];
 $endTime = $_POST['endTime'];
 $query = "UPDATE jobRequests SET kidsNames = '$kidsNames', kidsAges = '$kidsAges', serviceType = '$type', startDate = '$startDate' ,endDate = '$endDate', startTime ='$startTime' , endTime = '$endTime' WHERE  ID = ".$id.";"; 
@@ -21,4 +21,5 @@ $query = "UPDATE jobRequests SET kidsNames = '$kidsNames', kidsAges = '$kidsAges
 $result = mysqli_query($connection, $query);
 }
 $connection -> close();
+header("Location: ../parentRequests.php?editSuccess=1");
 ?>
