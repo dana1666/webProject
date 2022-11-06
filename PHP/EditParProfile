@@ -58,7 +58,7 @@ if(isset($_POST['save'])){
         $allErrors = $allErrors . $passwordError;
     }
 
-
+    
 
     if (strlen($allErrors) > 0 || !empty($allErrors)){
         mysqli_close($connection);
@@ -68,12 +68,21 @@ if(isset($_POST['save'])){
 
     else {
 
+        if ($profilePhoto  == null){
+            $query = "UPDATE parents SET firstName = '$Fname', lastName = '$Lname', email = '$Email',pass = '$password', city = '$city', district = '$district' , street ='$street' WHERE parentID = '$parent' ";   
+            $result = mysqli_query($connection, $query);
+            mysqli_close($connection);
+            header("Location: ../viewProfileParent.php?success=1");
+        }
+
+        else {
         $query = "UPDATE parents SET firstName = '$Fname', lastName = '$Lname', email = '$Email', photo ='$profilePhoto',pass = '$password', city = '$city', district = '$district' , street ='$street' WHERE parentID = '$parent' ";       
         $result = mysqli_query($connection, $query);
 
         mysqli_close($connection);
         header("Location: ../viewProfileParent.php?success=1");
-    
+        }
+            
     }
 
     function test_input($data) {
