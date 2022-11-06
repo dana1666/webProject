@@ -7,8 +7,33 @@ function notEmptyRadio(input){
     return ischecked;
 }
 function validFirstName(name){
-    return /^[A-Za-z]{1,30}$/.test(name);
+    return  /^[A-Za-z]{1,30}$/.test(name);
 }
+
+function commaSeparatedName(name){
+  if( /^[a-zA-Z]+(,\s*[a-zA-Z]+)*$/.test(name)){
+    var names = Array.from(name.split(","))
+    for (var i = 0 ; i <= names.length ; ++i){
+      if(names[i].length <= 1 )
+      return false
+    }
+    return true
+  }
+  else{return false}
+}
+
+function commaSeparatedAge(name){
+  if(/^[0-9]+(,[0-9]+)*$/.test(name)){
+    var ages= Array.from(name.split(","))
+    for (var i = 0 ; i <= ages.length ; ++i){
+      if(ages[i] >= 18)
+      return false ; 
+    }
+    return true ; 
+  }
+  else{return false}
+} 
+
 function validLastName(name){
     return /^[A-Za-z]{1,30}$/.test(name);
 }
@@ -33,5 +58,4 @@ function validPass(pass){
 function validPhone(phone){
      return /05+[0-9]{8}/.test(phone)
 }
-
 
