@@ -96,12 +96,21 @@ if(isset($_POST['save'])){
 
 
     else {
-        $query = "UPDATE Babysitters SET firstName = '$Fname', lastName = '$Lname', userID = '$userID', gender = '$gender' , email = '$Email', photo ='$profilePhoto',pass = '$password', phone = '$PhoneNo', city = '$city', bio = '$bio' , age ='$age' WHERE ID = '$babysitter' ";       
-        $result = mysqli_query($connection, $query);
 
-        mysqli_close($connection);
-        header("Location: ../viewProfileBabysitter.php?success=1");
-        
+        if ($profilePhoto  == null){
+            $query = "UPDATE Babysitters SET firstName = '$Fname', lastName = '$Lname', userID = '$userID', gender = '$gender' , email = '$Email',pass = '$password', phone = '$PhoneNo', city = '$city', bio = '$bio' , age ='$age' WHERE ID = '$babysitter' ";   
+            $result = mysqli_query($connection, $query);
+            mysqli_close($connection);
+            header("Location: ../viewProfileBabysitter.php?success=1");
+        }
+
+        else{
+            $query = "UPDATE Babysitters SET firstName = '$Fname', lastName = '$Lname', userID = '$userID', gender = '$gender' , email = '$Email', photo ='$profilePhoto',pass = '$password', phone = '$PhoneNo', city = '$city', bio = '$bio' , age ='$age' WHERE ID = '$babysitter' ";       
+            $result = mysqli_query($connection, $query);
+
+            mysqli_close($connection);
+            header("Location: ../viewProfileBabysitter.php?success=1");
+        }
     }
 
     function test_input($data) {
@@ -109,5 +118,5 @@ if(isset($_POST['save'])){
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
-      }   
+    }   
 ?>
